@@ -1,0 +1,16 @@
+[
+  { "id": "daily", "label": "ชีวิตประจำวัน", "icon": "🏠" },
+  { "id": "food", "label": "อาหาร", "icon": "🍙" },
+  { "id": "time", "label": "เวลา", "icon": "⏰" },
+  { "id": "people", "label": "คนและครอบครัว", "icon": "👪" },
+  { "id": "verb", "label": "คำกริยาพื้นฐาน", "icon": "🏃" },
+  { "id": "adjective", "label": "คำคุณศัพท์", "icon": "🎨" },
+  { "id": "travel", "label": "การเดินทาง", "icon": "🚉" },
+  { "id": "nature", "label": "ธรรมชาติ", "icon": "🌿" },
+  { "id": "school", "label": "โรงเรียน/งาน", "icon": "🏫" },
+  { "id": "emotion", "label": "อารมณ์ความรู้สึก", "icon": "💭" },
+  { "id": "body", "label": "ร่างกาย", "icon": "🖐" },
+  { "id": "shopping", "label": "ช้อปปิ้ง", "icon": "🛍" },
+  { "id": "abstract", "label": "นามธรรม", "icon": "🔤" },
+  { "id": "weather", "label": "อากาศ", "icon": "☀️" }
+]
