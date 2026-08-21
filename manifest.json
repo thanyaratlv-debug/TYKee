@@ -1,0 +1,19 @@
+{
+  "name": "たやきぃ Thayakii — เรียนคำศัพท์ญี่ปุ่นด้วย SRS",
+  "short_name": "Thayakii",
+  "description": "แอปเรียนคำศัพท์ภาษาญี่ปุ่นด้วยระบบ Spaced Repetition พร้อมเสียงอ่าน สถิติ และคลังคำศัพท์แยกหมวดหมู่ ใช้งานออฟไลน์ได้",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#faf5e8",
+  "theme_color": "#faf5e8",
+  "lang": "th",
+  "icons": [
+    { "src": "icons/favicon-16.png", "sizes": "16x16", "type": "image/png" },
+    { "src": "icons/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

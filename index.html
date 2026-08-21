@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="theme-color" content="#faf5e8">
+<title>たやきぃ Thayakii — เรียนคำศัพท์ญี่ปุ่นด้วย SRS</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+<link rel="icon" href="icons/favicon-16.png" sizes="16x16">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- Splash screen                                                  -->
+<!-- ============================================================ -->
+<div class="splash" id="splash">
+  <p class="splash-greeting">良い一日をお過ごしください</p>
+  <div class="splash-scene">
+    <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- torii -->
+      <g>
+        <rect x="118" y="46" width="64" height="9" rx="2" fill="var(--stamp)"/>
+        <rect x="112" y="58" width="76" height="7" rx="2" fill="#3a2f26"/>
+        <rect x="127" y="58" width="8" height="70" fill="var(--sakura)"/>
+        <rect x="165" y="58" width="8" height="70" fill="var(--sakura)"/>
+        <rect x="122" y="86" width="56" height="7" fill="var(--stamp)"/>
+        <rect x="145" y="72" width="10" height="14" fill="#3a2f26"/>
+      </g>
+      <!-- squirrel -->
+      <g transform="translate(48,118)">
+        <path d="M28 46 C10 46 2 30 10 16 C16 6 30 2 26 -6 C40 -4 46 12 40 24 C48 24 52 34 44 40 Z" fill="var(--sakura)" opacity="0"/>
+        <ellipse cx="16" cy="34" rx="17" ry="15" fill="#e2a25f"/>
+        <path d="M28 26 C42 14 46 -6 34 -14 C40 4 30 18 20 22 Z" fill="#e2a25f"/>
+        <circle cx="6" cy="26" r="11" fill="#f0c68b"/>
+        <circle cx="3" cy="23" r="1.6" fill="#3a2f26"/>
+        <circle cx="-2" cy="30" r="2.4" fill="#fff"/>
+        <path d="M-6 30 q4 3 8 0" stroke="var(--stamp)" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </g>
+      <!-- chick with taiyaki -->
+      <g transform="translate(128,104)">
+        <ellipse cx="20" cy="34" rx="26" ry="24" fill="#f4cf7b"/>
+        <circle cx="20" cy="8" r="17" fill="#f6d78e"/>
+        <circle cx="14" cy="5" r="2" fill="#3a2f26"/>
+        <circle cx="26" cy="5" r="2" fill="#3a2f26"/>
+        <path d="M17 10 q3 3 6 0" stroke="#c9862c" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M8 34 q22 -14 40 0 q-4 14 -20 14 q-16 0 -20 -14 Z" fill="#c9a15a"/>
+        <path d="M12 34 h32" stroke="#a37f3e" stroke-width="2"/>
+        <path d="M16 30 q12 6 24 0" stroke="#7f9a5c" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <ellipse cx="4" cy="46" rx="6" ry="4" fill="#e8973f"/>
+        <ellipse cx="36" cy="46" rx="6" ry="4" fill="#e8973f"/>
+      </g>
+      <!-- fox -->
+      <g transform="translate(214,112)">
+        <ellipse cx="18" cy="36" rx="19" ry="17" fill="#eb9143"/>
+        <ellipse cx="18" cy="40" rx="10" ry="8" fill="#fbe4c6"/>
+        <circle cx="10" cy="16" r="13" fill="#eb9143"/>
+        <path d="M-2 8 L4 -6 L12 6 Z" fill="#eb9143"/>
+        <path d="M18 8 L26 -6 L28 8 Z" fill="#eb9143"/>
+        <path d="M0 10 L4 0 L9 9 Z" fill="#fbe4c6"/>
+        <path d="M19 10 L24 1 L26 10 Z" fill="#fbe4c6"/>
+        <path d="M4 18 Q10 24 16 18" stroke="#3a2f26" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <circle cx="4" cy="15" r="1.6" fill="#3a2f26"/>
+        <circle cx="15" cy="15" r="1.6" fill="#3a2f26"/>
+        <path d="M-4 32 q26 14 46 0" stroke="var(--stamp)" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M38 44 q14 2 14 -12 q6 8 -2 16 q-6 4 -12 -4 Z" fill="#eb9143"/>
+        <ellipse cx="50" cy="34" rx="5" ry="4" fill="#fbe4c6"/>
+      </g>
+      <circle cx="150" cy="46" r="2.4" fill="var(--stamp)"/>
+    </svg>
+  </div>
+  <div class="brand-mark lg">
+    <span class="brand-bubble">たやきぃ</span>
+    <span class="brand-sub">Thayakii</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- Top bar                                                        -->
+<!-- ============================================================ -->
+<div class="topbar">
+  <div class="brand-mark">
+    <span class="brand-bubble">たやきぃ</span>
+    <span class="brand-sub">Thayakii</span>
+  </div>
+  <button class="icon-btn" id="openFilter" aria-label="ตัวกรองคำศัพท์">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="7" y1="12" x2="20" y2="12"/><line x1="10" y1="17" x2="20" y2="17"/><circle cx="6" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="9" cy="17" r="1.6" fill="currentColor" stroke="none"/><circle cx="4" cy="7" r="1.6" fill="currentColor" stroke="none"/></svg>
+  </button>
+</div>
+<div class="topbar-decor" aria-hidden="true">
+  <svg viewBox="0 0 130 16"><ellipse cx="18" cy="9" rx="18" ry="6" fill="var(--gold-soft)"/><ellipse cx="40" cy="6" rx="10" ry="5" fill="var(--gold-soft)"/></svg>
+</div>
+<div class="topbar-corner" aria-hidden="true">
+  <svg viewBox="0 0 96 60">
+    <path d="M4 30 q10 -14 24 -6 q6 -10 20 -4 q8 -8 20 2 q10 -6 20 4" stroke="var(--gold)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity=".55"/>
+    <circle cx="70" cy="40" r="16" fill="var(--leaf)" opacity=".5"/>
+    <circle cx="86" cy="30" r="12" fill="var(--leaf)" opacity=".4"/>
+  </svg>
+</div>
+
+<!-- ============================================================ -->
+<!-- View: เรียน (Learn)                                            -->
+<!-- ============================================================ -->
+<main id="view-learn" class="view active">
+  <div class="stage">
+    <div class="card-scene">
+      <div class="card-swipe-wrap" id="cardSwipeWrap">
+        <div class="card" id="card">
+
+          <div class="card-face card-front">
+            <span class="level-pill"><span class="levelPillText">ระดับคำศัพท์</span></span>
+            <button class="corner-btn corner-left markBtn" aria-label="บันทึกไว้อ่านใหม่">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+            </button>
+            <button class="corner-btn corner-right favBtn" aria-label="เพิ่มในรายการโปรด">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 16.9 6.4 20.1l1.4-6.3L3 9.5l6.4-.6z"/></svg>
+            </button>
+
+            <button class="audio-btn audioBtn" aria-label="ฟังเสียงอ่าน">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8a5 5 0 010 8"/></svg>
+            </button>
+
+            <div class="word-wrap" id="wordWrapFront"><span class="word">たやきぃ</span></div>
+            <p class="romaji" id="romajiFront">คำอ่าน Romaji</p>
+
+            <button class="flip-hint" id="flipHintBtn">แตะการ์ดเพื่อดูคำแปล</button>
+            <span class="stamp"><span class="stampText">N5</span></span>
+          </div>
+
+          <div class="card-face card-back">
+            <span class="level-pill"><span class="levelPillText">ระดับคำศัพท์</span></span>
+            <button class="corner-btn corner-left markBtn" aria-label="บันทึกไว้อ่านใหม่">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12v18l-6-4-6 4z"/></svg>
+            </button>
+            <button class="corner-btn corner-right favBtn" aria-label="เพิ่มในรายการโปรด">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 16.9 6.4 20.1l1.4-6.3L3 9.5l6.4-.6z"/></svg>
+            </button>
+
+            <div class="meaning-big" id="meaningBack">คำแปล</div>
+            <div class="category-tag" id="categoryBack">หมวดหมู่</div>
+
+            <div class="example-block">
+              <div class="example-row">
+                <p class="example-jp" id="exampleJpBack">ตัวอย่างประโยคภาษาญี่ปุ่น</p>
+                <button class="audio-btn small audioBtn" id="audioBtnExample" aria-label="ฟังเสียงประโยคตัวอย่าง">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8a5 5 0 010 8"/></svg>
+                </button>
+              </div>
+              <p class="example-th" id="exampleThBack">คำแปล</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="hint">ปัดซ้ายไปคำถัดไป · ปัดขวาย้อนกลับ</p>
+</main>
+
+<!-- ============================================================ -->
+<!-- View: บันทึก (Saved)                                           -->
+<!-- ============================================================ -->
+<section id="view-saved" class="view">
+  <div class="section-header"><h1>คำที่บันทึกไว้</h1></div>
+  <div class="saved-tabs">
+    <button class="saved-tab active" data-saved-tab="fav">รายการโปรด</button>
+    <button class="saved-tab" data-saved-tab="mark">อ่านใหม่</button>
+  </div>
+  <div class="list-wrap" id="savedList"></div>
+</section>
+
+<!-- ============================================================ -->
+<!-- View: สถิติ (Stats)                                            -->
+<!-- ============================================================ -->
+<section id="view-stats" class="view">
+  <div class="stats-banner">
+    <svg class="field-deco" viewBox="0 0 400 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="100" r="26" fill="#fff" opacity=".18"/>
+      <circle cx="70" cy="112" r="20" fill="#fff" opacity=".15"/>
+      <circle cx="140" cy="104" r="30" fill="#fff" opacity=".14"/>
+      <circle cx="230" cy="112" r="26" fill="#fff" opacity=".16"/>
+      <circle cx="300" cy="104" r="22" fill="#fff" opacity=".14"/>
+      <circle cx="370" cy="110" r="28" fill="#fff" opacity=".16"/>
+      <g opacity=".9">
+        <circle cx="35" cy="30" r="4" fill="#f6d9e3"/><circle cx="55" cy="20" r="3" fill="#eef3c8"/>
+        <circle cx="90" cy="34" r="3.5" fill="#f6d9e3"/><circle cx="250" cy="18" r="4" fill="#eef3c8"/>
+        <circle cx="280" cy="30" r="3" fill="#f6d9e3"/><circle cx="330" cy="16" r="3.5" fill="#eef3c8"/>
+      </g>
+    </svg>
+    <h1>สถิติการเรียน</h1>
+    <div class="stats-mascot" aria-hidden="true">
+      <svg viewBox="0 0 60 40">
+        <path d="M2 36 q6 -20 18 -20 q4 0 6 2 q4 -4 10 0 q6 -4 10 2 q6 -2 10 4" fill="none" stroke="#2b241d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M14 18 l4 -6 l3 5" fill="#2b241d"/>
+        <circle cx="16" cy="20" r="1.3" fill="#fff"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <span class="stat-label">สัปดาห์นี้</span>
+      <span class="stat-num" id="statWeek">0</span>
+      <span class="stat-sub" id="statWeekTotal">0 ครั้ง</span>
+      <span class="stat-card-mascot"><svg viewBox="0 0 30 30"><path d="M15 27 C6 27 8 4 15 4 C22 4 24 27 15 27Z" fill="#c9a15a" opacity=".8"/></svg></span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">เดือนนี้</span>
+      <span class="stat-num" id="statMonth">0</span>
+      <span class="stat-sub" id="statMonthTotal">0 ครั้ง</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">ปีนี้</span>
+      <span class="stat-num" id="statYear">0</span>
+      <span class="stat-sub" id="statYearTotal">0 ครั้ง</span>
+    </div>
+    <div class="stat-card stamped">
+      <span class="stat-label">เรียนรู้ต่อเนื่อง</span>
+      <span class="stat-num" id="statStreak">0</span>
+      <span class="stat-sub">วันต่อสัปดาห์</span>
+      <span class="stat-card-mascot"><svg viewBox="0 0 30 30"><path d="M4 22 q10 -16 22 -4" stroke="var(--stamp)" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M22 15 l4 -3 l0 6z" fill="var(--stamp)"/></svg></span>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <p class="chart-title">คำที่สะสมภายใน 7 วันล่าสุด</p>
+    <div class="chart" id="dailyChart"></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- View: ตั้งค่า (Settings)                                       -->
+<!-- ============================================================ -->
+<section id="view-settings" class="view">
+  <div class="settings-hero">
+    <h1>ตั้งค่า</h1>
+    <div class="brand-mark">
+      <span class="brand-bubble">たやきぃ</span>
+      <span class="brand-sub">Thayakii</span>
+    </div>
+    <div class="settings-mountain" aria-hidden="true">
+      <svg viewBox="0 0 400 60" preserveAspectRatio="none"><path d="M0 60 L60 18 L110 44 L170 6 L230 40 L280 22 L340 46 L400 30 L400 60 Z" fill="#fff"/></svg>
+    </div>
+  </div>
+
+  <div class="group">
+    <span class="group-label">รูปแบบตัวอักษร</span>
+    <div class="pills" id="modePills"></div>
+  </div>
+
+  <div class="group">
+    <span class="group-label">ความเร็วเสียงอ่าน</span>
+    <div class="slider-row">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-soft)" stroke-width="2"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8a5 5 0 010 8"/></svg>
+      <input type="range" id="ttsRate" min="0.5" max="1.3" step="0.05">
+      <span id="ttsRateLabel">0.85x</span>
+    </div>
+    <button class="secondary-btn" id="ttsTestBtn">ลองฟังเสียง</button>
+  </div>
+
+  <div class="group">
+    <div class="switch-row">
+      <span>การแจ้งเตือนคำศัพท์ใหม่</span>
+      <label class="switch">
+        <input type="checkbox" id="notifyToggle">
+        <span class="switch-track"></span>
+      </label>
+    </div>
+    <div class="switch-row" id="notifyTimeRow">
+      <span>เวลาในการแจ้งเตือนคำศัพท์ประจำวัน</span>
+      <input type="time" id="notifyTime">
+    </div>
+    <div class="pills" id="notifyFreqPills"></div>
+    <p class="fine-print" id="notifyStatus"></p>
+    <p class="fine-print">หมายเหตุ หากปิดแอปสนิท เบราว์เซอร์บางตัว (เช่น iOS Safari) อาจไม่ส่งการแจ้งเตือนจนกว่าจะเปิดโต๊ะอีกครั้ง เนื่องจากข้อจำกัดของระบบ ไม่ใช่แอปนี้</p>
+  </div>
+
+  <div class="group">
+    <span class="group-label">ข้อมูล</span>
+    <p class="fine-print" id="wordCountLabel">0 คำ ในคลังคำศัพท์</p>
+    <button class="secondary-btn danger" id="resetProgressBtn">ล้างความคืบหน้า SRS ทั้งหมด</button>
+  </div>
+
+  <div class="group install-row" id="installRow">
+    <p>เพิ่มแอปนี้ไว้ที่หน้าจอหลัก! เพื่อใช้งานแบบออฟไลน์และรับการแจ้งเตือน</p>
+    <div class="install-banner">
+      <span class="install-icon">
+        <svg viewBox="0 0 60 60">
+          <rect width="60" height="60" fill="#f6d78e"/>
+          <ellipse cx="30" cy="40" rx="18" ry="7" fill="#c9a15a"/>
+          <circle cx="30" cy="20" r="13" fill="#f8dd9c"/>
+          <circle cx="25" cy="18" r="1.6" fill="#3a2f26"/><circle cx="35" cy="18" r="1.6" fill="#3a2f26"/>
+          <circle cx="48" cy="10" r="6" fill="var(--stamp)"/>
+        </svg>
+      </span>
+      <span class="install-label" id="installDesc">เพิ่มไว้ที่หน้าจอหลัก</span>
+    </div>
+    <button class="install-btn" id="installBtn" style="display:none">ติดตั้งแอป</button>
+  </div>
+
+  <div class="flower-border" aria-hidden="true">
+    <svg viewBox="0 0 400 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 70 Q40 40 80 60 Q120 40 160 62 Q200 42 240 60 Q280 40 320 62 Q360 42 400 58 L400 70 Z" fill="#7f9a5c"/>
+      <g>
+        <circle cx="30" cy="46" r="7" fill="#b7d2e6"/><circle cx="30" cy="46" r="3" fill="#f6d78e"/>
+        <circle cx="70" cy="52" r="6" fill="#f0aab0"/><circle cx="70" cy="52" r="2.6" fill="#f6d78e"/>
+        <circle cx="150" cy="48" r="7" fill="#d9b8e6"/><circle cx="150" cy="48" r="3" fill="#f6d78e"/>
+        <circle cx="260" cy="50" r="6.5" fill="#f0aab0"/><circle cx="260" cy="50" r="2.8" fill="#f6d78e"/>
+        <circle cx="330" cy="46" r="7" fill="#b7d2e6"/><circle cx="330" cy="46" r="3" fill="#f6d78e"/>
+        <circle cx="380" cy="52" r="6" fill="#d9b8e6"/><circle cx="380" cy="52" r="2.6" fill="#f6d78e"/>
+      </g>
+      <g transform="translate(150,30)">
+        <ellipse cx="16" cy="20" rx="17" ry="12" fill="#eb9143"/>
+        <circle cx="6" cy="6" r="10" fill="#eb9143"/>
+        <path d="M-2 0 L2 -8 L8 2 Z" fill="#eb9143"/>
+        <path d="M8 0 L14 -8 L16 0 Z" fill="#eb9143"/>
+        <path d="M0 12 Q6 16 12 12" stroke="#3a2f26" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <ellipse cx="34" cy="26" rx="8" ry="6" fill="#fbe4c6"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- Bottom tab bar                                                 -->
+<!-- ============================================================ -->
+<nav class="tabbar">
+  <button class="tab-btn active" data-view="learn">
+    <svg viewBox="0 0 24 24" class="tab-icon-fill"><rect x="5" y="4" width="14" height="16" rx="2"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="14" y2="13"/><circle cx="19" cy="4" r="1.6" fill="currentColor" stroke="none"/><circle cx="5" cy="20" r="1.6" fill="currentColor" stroke="none"/></svg>
+    <span>เรียน</span>
+  </button>
+  <button class="tab-btn" data-view="saved">
+    <svg viewBox="0 0 24 24" class="tab-icon-fill"><path d="M12 20c-4-3-8-6-8-11a5 5 0 019-3 5 5 0 019 3c0 5-4 8-8 11z"/><path d="M12 8v6M9 11h6"/></svg>
+    <span>บันทึก</span>
+  </button>
+  <button class="tab-btn" data-view="stats">
+    <svg viewBox="0 0 24 24" class="tab-icon-fill"><path d="M4 4v16h16"/><path d="M7 9l4-4 3 3 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>สถิติ</span>
+  </button>
+  <button class="tab-btn" data-view="settings">
+    <svg viewBox="0 0 24 24" class="tab-icon-fill"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 00-.2-1.6l2-1.4-2-3.4-2.3.8a7 7 0 00-2.8-1.6L13 2h-2l-.7 2.8a7 7 0 00-2.8 1.6l-2.3-.8-2 3.4 2 1.4A7 7 0 005 12a7 7 0 00.2 1.6l-2 1.4 2 3.4 2.3-.8a7 7 0 002.8 1.6L11 22h2l.7-2.8a7 7 0 002.8-1.6l2.3.8 2-3.4-2-1.4c.13-.5.2-1.05.2-1.6z"/></svg>
+    <span>ตั้งค่า</span>
+  </button>
+</nav>
+
+<!-- ============================================================ -->
+<!-- Filter sheet (ระดับ + หมวดหมู่)                                  -->
+<!-- ============================================================ -->
+<div class="overlay" id="filterOverlay">
+  <div class="sheet">
+    <div class="sheet-grip"></div>
+    <h2>ตัวกรองคำศัพท์</h2>
+    <p class="desc">เลือกระดับและหมวดหมู่ที่อยากทบทวนวันนี้</p>
+    <div class="group">
+      <span class="group-label">ระดับ JLPT</span>
+      <div class="pills" id="filterLevelPills"></div>
+    </div>
+    <div class="group">
+      <span class="group-label">หมวดหมู่</span>
+      <div class="pills" id="filterCategoryPills"></div>
+    </div>
+    <button class="shuffle-btn" id="shuffleAllBtn">🎲 สุ่มจากทุกหมวดหมู่</button>
+    <button class="close-sheet" id="closeFilter">ปิด</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  window.addEventListener("load", () => {
+    setTimeout(() => document.getElementById("splash").classList.add("hide"), 1400);
+  });
+</script>
+<script src="js/db.js"></script>
+<script src="js/srs.js"></script>
+<script src="js/api.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/stats.js"></script>
+<script src="js/gestures.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
